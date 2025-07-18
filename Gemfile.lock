@@ -103,6 +103,10 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphiql-rails (1.10.5)
+      railties
+    graphql (2.0.32)
+      base64
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.1)
@@ -320,6 +324,8 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  graphiql-rails (~> 1.10.5)
+  graphql (~> 2.0.0)
   kamal
   pg (~> 1.1)
   puma (>= 5.0)
