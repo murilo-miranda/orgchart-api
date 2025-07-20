@@ -14,6 +14,7 @@ services:
 
   web:
     build: .
+    container_name: orgchart_api
     command: bin/rails server -b 0.0.0.0
     volumes:
       - .:/app
@@ -28,3 +29,7 @@ services:
       DATABASE_NAME: orgchart_api_development
 volumes:
   postgres_data:
+
+networks:
+  orgchart_net:
+    external: true
