@@ -16,4 +16,6 @@ COPY . .
 
 RUN rm -f tmp/pids/server.pid
 
+ENTRYPOINT ["./bin/docker-entrypoint"]
+
 CMD ["bin/rails", "server", "-b", "0.0.0.0"]

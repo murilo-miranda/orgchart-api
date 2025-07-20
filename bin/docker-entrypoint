@@ -11,4 +11,7 @@ if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare
 fi
 
+# Solver A server is already running (pid: 1, file: /rails/tmp/pids/server.pid)
+rm -f tmp/pids/server.pid
+
 exec "${@}"
