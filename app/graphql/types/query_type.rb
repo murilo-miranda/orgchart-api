@@ -26,5 +26,17 @@ module Types
     def companies
       Company.all
     end
+
+    field :company, Types::CompanyType, null: true do
+      description "Returns a company"
+
+      argument :id, ID, required: true
+    end
+
+    def company(id:)
+      Company.find(id)
+    rescue ActiveRecord::RecordNotFound => e
+      GraphQL::ExecutionError.new(e.message)
+    end
   end
 end
