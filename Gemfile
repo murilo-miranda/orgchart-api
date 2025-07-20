@@ -55,5 +55,5 @@ end
 
 group :test do
   gem "shoulda-matchers", "~> 6.5"
-  gem 'simplecov', require: false
+  gem "simplecov", require: false
 end

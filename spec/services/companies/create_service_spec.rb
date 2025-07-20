@@ -28,7 +28,7 @@ RSpec.describe Companies::CreateService do
       it 'returns errors message' do
         result = subject
 
-        expect(result[:errors].each { |error| error[:message] }).to eq([{:message=>"can't be blank", :path=>["attributes", "name"]}])
+        expect(result[:errors].each { |error| error[:message] }).to eq([ { message: "can't be blank", path: [ "attributes", "name" ] } ])
       end
     end
   end

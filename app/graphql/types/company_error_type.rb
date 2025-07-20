@@ -5,6 +5,6 @@ module Types
     description "A user-readable error"
 
     field :message, String, null: false
-    field :path, [String]
+    field :path, [ String ]
   end
 end

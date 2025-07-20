@@ -21,7 +21,7 @@ module Companies
     private
     def structure_errors(company)
       company.errors.map do |error|
-        path = ["attributes", error.attribute.to_s.camelize(:lower)]
+        path = [ "attributes", error.attribute.to_s.camelize(:lower) ]
         { message: error.message, path: path }
       end
     end
