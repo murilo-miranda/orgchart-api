@@ -4,6 +4,7 @@ module Types
     field :name, String, null: false
     field :email, String, null: false
     field :picture_url, String, null: true
+    field :company, Types::CompanyType, null: false
 
     def picture_url
       object.picture.attached? ? Rails.application.routes.url_helpers.rails_blob_url(object.picture, only_path: true) : nil

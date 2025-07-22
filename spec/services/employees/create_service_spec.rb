@@ -1,16 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Employees::CreateService do
-  subject { described_class.call(name: name, email: email, picture: picture) }
+  subject { described_class.call(company_id: company_id, name: name, email: email, picture: picture) }
+  let!(:company) { create(:company) }
 
   describe '.call' do
     context 'when valid' do
+      let(:company_id) { company.id }
       let(:name) { "Murilo" }
       let(:email) { "murilo@email" }
       let(:picture) { nil }
 
-      it 'creates a employee' do
+      it 'creates a employee in a company' do
         expect { subject }.to change(Employee, :count).by(1)
+        expect(Employee.last.company.id).to eq(company.id)
+        expect(Employee.last.company.name).to eq(company.name)
       end
 
       it 'returns a created employee' do
@@ -21,6 +25,7 @@ RSpec.describe Employees::CreateService do
     end
 
     context 'when not valid' do
+      let(:company_id) { "" }
       let(:name) { "" }
       let(:email) { "" }
       let(:picture) { "" }
@@ -34,7 +39,8 @@ RSpec.describe Employees::CreateService do
 
         expect(result[:errors]).to include(
           { message: "can't be blank", path: [ "attributes", "name" ] },
-          { message: "can't be blank", path: [ "attributes", "email" ] }
+          { message: "can't be blank", path: [ "attributes", "email" ] },
+          { message: "must exist", path: [ "attributes", "company" ] }
         )
       end
     end

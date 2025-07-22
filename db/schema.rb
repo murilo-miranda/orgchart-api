@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_22_151553) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_22_200541) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -53,6 +53,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_22_151553) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -65,4 +67,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_22_151553) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "employees", "companies"
 end
