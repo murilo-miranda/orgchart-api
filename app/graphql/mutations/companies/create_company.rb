@@ -4,7 +4,7 @@ module Mutations
       argument :name, String, required: true
 
       field :company, Types::CompanyType, null: true
-      field :errors, [ Types::CompanyErrorType ], null: false
+      field :errors, [ Types::BaseError ], null: false
 
       def resolve(name:)
         ::Companies::CreateService.call(name: name)

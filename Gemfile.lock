@@ -72,6 +72,9 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    apollo_upload_server (2.1.0)
+      actionpack (>= 4.2)
+      graphql (>= 1.8)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.1)
@@ -358,6 +361,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  apollo_upload_server (= 2.1)
   bootsnap
   brakeman
   debug
