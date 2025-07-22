@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Queries::Companies", type: :request do
   let!(:company1) { create(:company) }
   let!(:company2) { create(:company) }
+  let!(:employee1) { create(:employee, company: company2) }
+  let!(:employee2) { create(:employee, company: company2) }
 
   subject { post "/graphql", params: { query: query } }
 
@@ -34,6 +36,10 @@ RSpec.describe "Queries::Companies", type: :request do
         company(id: "#{id}") {
           id
           name
+          employees{
+            name
+            email
+          }
         }
       }
       GRAPHQL
@@ -47,6 +53,16 @@ RSpec.describe "Queries::Companies", type: :request do
         json = JSON.parse(response.body)
         data = json["data"]["company"]
         expect(data["name"]).to eq company2.name
+      end
+
+      it 'returns a list of employees' do
+        subject
+        json = JSON.parse(response.body)
+        data = json["data"]["company"]
+        expect(data["employees"]).to include(
+          { "name" => employee1.name, "email" => employee1.email },
+          { "name" => employee2.name, "email" => employee2.email }
+        )
       end
     end
 
