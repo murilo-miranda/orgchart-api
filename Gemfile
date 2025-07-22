@@ -35,6 +35,7 @@ gem "thruster", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 gem "rack-cors"
 
+gem "apollo_upload_server", "2.1"
 gem "graphql", "~> 2.0.0"
 gem "graphiql-rails", "~> 1.10.5"
 

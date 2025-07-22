@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class CompanyErrorType < Types::BaseObject
+  class BaseError < Types::BaseObject
     description "A user-readable error"
 
     field :message, String, null: false
