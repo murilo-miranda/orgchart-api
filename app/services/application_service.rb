@@ -1,10 +1,10 @@
 class ApplicationService
   def save_result(resource)
-    key = resource.model_name.element.to_sym
+    process(resource, :save)
+  end
 
-    return { key => resource, errors: [] } if resource.save
-
-    { key => nil, errors: structure_errors(resource) }
+  def delete_result(resource)
+    process(resource, :destroy)
   end
 
 
@@ -14,5 +14,15 @@ class ApplicationService
       path = [ "attributes", error.attribute.to_s.camelize(:lower) ]
       { message: error.message, path: path }
     end
+  end
+
+  def process(resource, method)
+    return { key(resource) => resource, errors: [] } if resource.send(method)
+
+    { key(resource) => nil, errors: structure_errors(resource) }
+  end
+
+  def key(resource)
+    resource.model_name.element.to_sym
   end
 end
