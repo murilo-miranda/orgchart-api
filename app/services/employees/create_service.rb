@@ -1,15 +1,16 @@
 module Employees
   class CreateService
-    attr_reader :name, :email, :picture
+    attr_reader :company_id, :name, :email, :picture
 
-    def initialize(name:, email:, picture: nil)
+    def initialize(company_id:, name:, email:, picture: nil)
+      @company_id = company_id
       @name = name
       @email = email
       @picture = picture
     end
 
     def call
-      employee = Employee.new(name: name, email: email)
+      employee = Employee.new(company_id: company_id, name: name, email: email)
 
       employee.picture.attach(
         io: picture.tempfile,
@@ -22,8 +23,8 @@ module Employees
       { employee: nil, errors: structure_errors(employee) }
     end
 
-    def self.call(name:, email:, picture: nil)
-      new(name: name, email: email, picture: picture).call
+    def self.call(company_id:, name:, email:, picture: nil)
+      new(company_id: company_id, name: name, email: email, picture: picture).call
     end
 
     private
