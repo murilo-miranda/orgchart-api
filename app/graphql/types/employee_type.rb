@@ -7,7 +7,7 @@ module Types
     field :company, Types::CompanyType, null: false
 
     def picture_url
-      object.picture.attached? ? Rails.application.routes.url_helpers.rails_blob_url(object.picture, only_path: true) : nil
+      object.picture.attached? ? Rails.application.routes.url_helpers.rails_blob_url(object.picture) : nil
     end
   end
 end
