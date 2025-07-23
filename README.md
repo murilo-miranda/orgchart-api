@@ -22,7 +22,7 @@ docker compose up
 ```
 - Na raiz do projeto, acesse o container com o comando:
 ```
-docker exec -it orgchart-api-web-1 bash
+docker exec -it orgchart_api bash
 ```
 
 ### Como executar os testes
@@ -30,6 +30,13 @@ docker exec -it orgchart-api-web-1 bash
 ```
 rspec
 ```
+
+### Como realizar debug
+- Fora do container, execute o comando no console/bash:
+```
+docker attach orgchart_api
+```
+- Dessa forma ao colocar `binding.pry` ou `debugger`, a execucao ira parar e sera possivel debuggar a partir do console.
 
 ## Endpoints
 

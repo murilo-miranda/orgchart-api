@@ -13,6 +13,8 @@ services:
   web:
     build: .
     container_name: orgchart_api
+    stdin_open: true
+    tty: true
     command: bin/rails server -b 0.0.0.0
     volumes:
       - .:/app

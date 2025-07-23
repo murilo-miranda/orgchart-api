@@ -71,3 +71,5 @@ Rails.application.configure do
   # Add IP to DNS rebinding protection
   config.hosts << /.*/  # Accept any host
 end
+
+Rails.application.routes.default_url_options[:host] = "http://localhost:3000"
