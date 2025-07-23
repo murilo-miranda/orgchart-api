@@ -111,6 +111,7 @@ GEM
       railties (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
+    fiber-storage (1.0.1)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -118,8 +119,10 @@ GEM
       activesupport (>= 6.1)
     graphiql-rails (1.10.5)
       railties
-    graphql (2.0.32)
+    graphql (2.5.11)
       base64
+      fiber-storage
+      logger
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.1)
@@ -373,7 +376,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.5.0)
   faker (~> 3.4)
   graphiql-rails (~> 1.10.5)
-  graphql (~> 2.0.0)
+  graphql (~> 2.5.11)
   kamal
   pg (~> 1.1)
   pry
