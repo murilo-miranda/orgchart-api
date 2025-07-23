@@ -36,7 +36,7 @@ gem "thruster", require: false
 gem "rack-cors"
 
 gem "apollo_upload_server", "2.1"
-gem "graphql", "~> 2.0.0"
+gem "graphql", "~> 2.5.11"
 gem "graphiql-rails", "~> 1.10.5"
 
 group :development, :test do
