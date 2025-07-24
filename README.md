@@ -2,6 +2,8 @@
 
 # Projeto - Organograma da Empresa
 
+Projeto conjunto com https://github.com/murilo-miranda/orgchart-webapp
+
 ## Informações técnicas
 
 - Ruby 3.2.7
@@ -29,6 +31,12 @@ docker exec -it orgchart_api bash
 - Dentro do container, execute o comando:
 ```
 rspec
+```
+
+### Como executar os seeds
+- Dentro do container, execute o comando:
+```
+rails db:seeds
 ```
 
 ### Como realizar debug
