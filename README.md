@@ -4,6 +4,12 @@
 
 Projeto conjunto com https://github.com/murilo-miranda/orgchart-webapp
 
+## Melhorias futuras
+
+- Criação de testes para os cenários.
+- Remoção de arquivos, diretórios não necessários.
+- Modo de reunir queries/mutation type por domínio.
+
 ## Informações técnicas
 
 - Ruby 3.2.7
