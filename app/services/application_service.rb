@@ -7,7 +7,6 @@ class ApplicationService
     process(resource, :destroy)
   end
 
-
   private
   def structure_errors(resource)
     resource.errors.map do |error|
